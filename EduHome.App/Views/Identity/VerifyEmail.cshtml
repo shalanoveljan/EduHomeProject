@@ -1,0 +1,8 @@
+﻿<div class="validation-summary-errors">
+    <ul>
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <li>@error.ErrorMessage</li>
+        }
+    </ul>
+</div>

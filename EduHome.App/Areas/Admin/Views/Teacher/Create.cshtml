@@ -1,0 +1,197 @@
+﻿@model TeacherPostDto
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description">
+                        Basic form layout
+                    </p>
+                    <form enctype="multipart/form-data" method="post" class="forms-sample">
+                        <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="FullName"></label>
+                            <input asp-for="FullName" class="form-control" placeholder="FullName">
+                            <span class="text text-danger" asp-validation-for="FullName"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Info"></label>
+                            <input asp-for="Info" class="form-control" placeholder="Info">
+                            <span class="text text-danger" asp-validation-for="Info"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Experience"></label>
+                            <input type="number" asp-for="Experience" class="form-control" placeholder="Experience">
+                            <span class="text text-danger" asp-validation-for="Experience"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input type="email" asp-for="Email" class="form-control" placeholder="Email">
+                            <span class="text text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber"></label>
+                            <input type="tel" asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber">
+                            <span class="text text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Skype"></label>
+                            <input asp-for="Skype" class="form-control" placeholder="Skype">
+                            <span class="text text-danger" asp-validation-for="Skype"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <input accept="image/*" asp-for="ImageFile" class="form-control" placeholder="Image">
+                            <span class="text text-danger" asp-validation-for="ImageFile"></span>
+                        </div>
+
+
+                        <div class="form-group">
+                            <select asp-for="DutyId" class="form-select" aria-label="Default select example">
+                                <option selected>Duties</option>
+                                @foreach (var item in ViewBag.Duties.Items)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            <span class="text text-danger" asp-validation-for="DutyId"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <select asp-for="DegreeId" class="form-select" aria-label="Default select example">
+                                <option selected>Degrees</option>
+                                @foreach (var item in ViewBag.Degrees.Items)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            <span class="text text-danger" asp-validation-for="DegreeId"></span>
+                        </div>
+                          <div class="form-group">
+                            <select multiple asp-for="FaculitiesIds" class="form-select" aria-label="Default select example">
+                              
+                                @foreach (var item in ViewBag.Faculties.Items)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            <span class="text text-danger" asp-validation-for="FaculitiesIds"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <select multiple asp-for="HobbiesIds" class="form-select" aria-label="Default select example">
+
+                                @foreach (var item in ViewBag.Hobbies.Items)
+                                {
+                                    <option value="@item.Id">@item.Name</option>
+                                }
+                            </select>
+                            <span class="text text-danger" asp-validation-for="HobbiesIds"></span>
+                        </div>
+
+                        <div class="form-row col-12" id="social">
+                            <div class="form-group col-md-6" data-index="0">
+                                <label>Social Icon</label>
+                                <input class="form-control" asp-for="Icons">
+                                <span asp-validation-for="Icons"></span>
+                                <label> Social Url</label>
+                                <input class="form-control" asp-for="Urls">
+                                <span asp-validation-for="Urls"></span>
+                            </div>
+
+
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <button type="button" data-nextIndex="2" class="add-social btn btn-primary">+</button>
+                            </div>
+                        </div>
+
+                         <div class="form-row col-12" id="skill">
+                            <div class="form-group col-md-6" data-index="0">
+
+                                <label>Skill Key</label>
+                                <input class="form-control" asp-for="SkillKeys">
+                                <span asp-validation-for="SkillKeys"></span>
+
+
+
+                                <label> Skill Value</label>
+                                <input class="form-control" asp-for="SkillValues">
+                                <span asp-validation-for="SkillValues"></span>
+                            </div>
+
+                        </div>
+                        <div class="form-row justify-content-center">
+                            <div class="form-group">
+                                <button type="button" data-nextIndex="2" class="add-skill btn btn-primary">+</button>
+                            </div>
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <button class="btn btn-light">Cancel</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".add-social", function (e) {
+            e.preventDefault();
+            var nextIndex = $(this).attr("data-nextIndex");
+            var inputGroup = `
+            <div class="form-group col-md-6" data-index="0">
+                                    <label>Social Icon</label>
+                                    <input class="form-control" type="text" data-val="true" data-val-required="The Icons field is required." id="Icons" name="Icons" value="">
+                                    <span class="field-validation-valid" data-valmsg-for="Icons" data-valmsg-replace="true"></span>
+                                    <label> Social Url</label>
+                                    <input class="form-control" type="text" data-val="true" data-val-required="The Urls field is required." id="Urls" name="Urls" value="">
+                                    <span class="field-validation-valid" data-valmsg-for="Urls" data-valmsg-replace="true"></span>
+                                    <span><i style="cursor:pointer" class="fas fa-minus delete-feature"> </i></span>
+                                </div>
+            `
+            $("#social").append($(inputGroup))
+            nextIndex = +nextIndex + 1;
+            console.log(nextIndex)
+            $(this).attr("data-nextIndex", nextIndex)
+        })
+        $(document).on("click", ".delete-feature", function (e) {
+            e.preventDefault();
+            $(this).parents(".form-group").empty();
+        })
+    })
+</script>
+
+<script>
+    $(document).ready(function () {
+        $(document).on("click", ".add-skill", function (e) {
+            e.preventDefault();
+            var nextIndex = $(this).attr("data-nextIndex");
+            var inputGroup = `
+                <div class="form-group col-md-6" data-index="0">
+                                        <label>Skill Key</label>
+                                            <input class="form-control" type="text" data-val="true" data-val-required="The Keys field is required." id="SkillKeys" name="SkillKeys" value="">
+                                            <span class="field-validation-valid" data-valmsg-for="SkillKeys" data-valmsg-replace="true"></span>
+                                        <label> Skill Value</label>
+                                                <input class="form-control" type="text" data-val="true" data-val-required="The Values field is required." id="SkillValues" name="SkillValues" value="">
+                                            <span class="field-validation-valid" data-valmsg-for="SkillValues" data-valmsg-replace="true"></span>
+                                        <span><i style="cursor:pointer" class="fas fa-minus delete-feature"> </i></span>
+                                    </div>
+                `
+            $("#skill").append($(inputGroup))
+            nextIndex = +nextIndex + 1;
+            console.log(nextIndex)
+            $(this).attr("data-nextIndex", nextIndex)
+        })
+        $(document).on("click", ".delete-feature", function (e) {
+            e.preventDefault();
+            $(this).parents(".form-group").empty();
+        })
+    })
+</script>

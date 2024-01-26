@@ -1,0 +1,33 @@
+﻿﻿
+@model List<TestimonialGetDto>
+
+<div class="row">
+    <div class="testimonial-owl owl-theme owl-carousel">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-8 col-md-offset-2 col-sm-12">
+
+                <div class="single-testimonial">
+                    <div class="testimonial-info">
+
+                        <div class="testimonial-img">
+                            <img src="~/assets/img/testimonial/@item.Image" alt="@item.Name">
+                        </div>
+                        <div class="testimonial-content">
+                            <p>@item.Description</p>
+                            <h4>@item.Name</h4>
+                            <h5>
+                                @foreach (var pos in @item.PositionOfTestimonials)
+                                {
+                                    @pos.Name 
+                                }
+                            </h5>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,135 @@
+﻿
+   @model BlogGetDto
+   @inject IBlogService  blogService
+
+@{
+    PagginatedResponse<BlogGetDto> blogs = await blogService.GetAllAsync();
+}
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>blog details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Blog Start -->
+<div class="blog-details-area pt-150 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="blog-details">
+                    <div class="blog-details-img">
+                        <img src="~/assets/img/blog/@Model.Image" alt="blog-details">
+                    </div>
+                    <div class="blog-details-content">
+                        <h2>@Model.Title </h2>
+                        <h6>By @Model.AuthorGetDto.Name  / @Model.Date.ToString("MMMM dd, yyyy") /  <i class="fa fa-comments-o"></i> @Model.CommentCount</h6>
+                        <p>@Model.Description</p>
+                    </div>
+                    <div class="reply-area">
+                        <h3>LEAVE A REPLY</h3>
+                        <p>I must explain to you how all this a mistaken idea of ncing great explorer of the rut<br> the is lder of human happinescias unde omnis iste natus error sit volptatem </p>
+                        <form method="post" asp-action="Create" asp-controller="Blog" asp-route-id="@Model.Id">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <p>Massage</p>
+                                    <textarea asp-for="Text" id="message" cols="15" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <button class="reply-btn" href="#" data-text="send"><span>send message</span></button>
+                            <p class="form-messege"></p>
+                        </form>
+
+                        <div>
+                            @foreach (var item in Model.Comments)
+                            {
+                                <p>@item.Text</p>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+             <div class="col-md-4">
+                <div class="blog-sidebar right">
+                    <div class="single-blog-widget mb-50">
+                        <h3>search</h3>
+                        <div class="blog-search">
+                            <form id="search" action="#">
+                                <input type="search" placeholder="Search..." name="search" />
+                                <button type="submit">
+                                    <span><i class="fa fa-search"></i></span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>category</h3>
+                        <ul>
+                          
+                            <li><a href="~/assets/#">@Model.Category.Name (@Model.Category.BlogCount)</a></li>
+                                
+                            
+                        
+                        </ul>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <div class="single-blog-banner">
+                            <a href="~/assets/blog-details.html" id="blog"><img src="~/assets/img/blog/blog-img.jpg" alt="blog"></a>
+                            <h2>best<br> eductaion<br> theme</h2>
+                        </div>
+                    </div>
+                    <div class="single-blog-widget mb-50">
+                        <h3>latest post</h3>
+
+                        @foreach (var item in blogs.Items.OrderByDescending(p=>p.Date).Take(3))
+                        {
+
+                            <div style="display:flex" class="single-post mb-30">
+                                <div style="width:50%" class="single-post-img">
+                                    <a href="~/assets/blog-details.html">
+                                        <img src="~/assets/img/blog/@item.Image" alt="post">
+                                        <div class="blog-hover">
+                                            <i class="fa fa-link"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="single-post-content">
+                                    <h4><a asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">@item.Title</a></h4>
+                                    <p>By @item.AuthorGetDto.Name  /  @item.Date.ToString("MMMM dd, yyyy")</p>
+                                </div>
+                            </div>
+                        }
+                      
+                       
+                    </div>
+                    <div class="single-blog-widget">
+                        <h3>tags</h3>
+                        <div class="single-tag">
+                            @foreach (var item in blogs.Items)
+                            {
+                                @foreach (var tag in item.TagsOfBlog)
+                                {
+                            <a href="~/assets/blog-details.html" class="mr-10 mb-10">@tag.Name</a>
+                                }
+                                
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+<!-- Blog End -->

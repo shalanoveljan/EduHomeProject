@@ -1,0 +1,70 @@
+﻿@model RegisterDto
+
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>Register</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Login start -->
+<div class="login-area pt-150 pb-150">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center">
+                <div class="login">
+                    <div class="login-form-container">
+                        <div class="login-text">
+                            <h2>Register</h2>
+                            <span>Please login using account detail bellow.</span>
+                        </div>
+                        <div class="login-form">
+                            <form  method="post">
+                                <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                                <div class="col-md-12 form-group">
+                                    <input asp-for="Name" class="form-control" placeholder="Name" >
+                                    <span class="alert alert-text" asp-validation-for="Name"></span>
+                                </div>
+                                <div class="col-md-12 form-group">
+                                    <input asp-for="Surname" class="form-control" placeholder="Surname" >
+                                    <span class="alert alert-text" asp-validation-for="Surname"></span>
+                                </div>
+                                 <div class="col-md-12 form-group">
+                            <input asp-for="Username" class="form-control" placeholder="UserName">
+                                    <span class="alert alert-text" asp-validation-for="Username"></span>
+                        </div>
+                         <div class="col-md-12 form-group">
+                            <input asp-for="Email" class="form-control" placeholder="Email">
+                                    <span class="alert alert-text" asp-validation-for="Email"></span>                        </div>
+                                <div class="col-md-12 form-group">
+                                    <input asp-for="Password" class="form-control" placeholder="Password" >
+                                    <span class="alert alert-text" asp-validation-for="Password"></span>
+                                </div>
+                                    <div class="col-md-12 form-group">
+                                    <input asp-for="ConfirmPassword" class="form-control" placeholder="ConfirmPassword" >
+                                    <span class="alert alert-text" asp-validation-for="ConfirmPassword"></span>
+                                </div>
+                                <div class="button-box">
+                                    <button type="submit" class="default-btn">Sign Up </button>
+                                    <a asp-controller="identity" asp-action="login">Already has account?</a>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Login end -->

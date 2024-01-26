@@ -1,0 +1,299 @@
+﻿@inject ISettingService settingService
+
+@{
+    SettingGetDto setting = await settingService.GetAsync(18);
+}
+@if (!string.IsNullOrWhiteSpace((string)TempData["noSendEmail"]))
+{
+    <div style="display:none" id="message">@TempData["noSendEmail"]</div>
+}
+@if (!string.IsNullOrWhiteSpace((string)TempData["SendEmail"]))
+{
+    <div style="display:none" id="message">@TempData["SendEmail"]</div>
+}
+@if (!string.IsNullOrWhiteSpace((string)TempData["login"]))
+{
+    <div style="display:none" id="message">@TempData["login"]</div>
+}
+@if (!string.IsNullOrWhiteSpace((string)TempData["update"]))
+{
+    <div style="display:none" id="message">@TempData["update"]</div>
+}
+@if (!string.IsNullOrWhiteSpace((string)TempData["logout"]))
+{
+    <div style="display:none" id="message">@TempData["logout"]</div>
+}
+
+
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from demo.devitems.com/eduhome/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 19:37:50 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Eduhome - Educational HTML Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="~/assets/apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/animate.css">
+    <link rel="stylesheet" href="~/assets/css/meanmenu.css">
+    <link rel="stylesheet" href="~/assets/css/magnific-popup.css">
+    <link rel="stylesheet" href="~/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/et-line-icon.css">
+    <link rel="stylesheet" href="~/assets/css/reset.css">
+    <link rel="stylesheet" href="~/assets/css/ionicons.min.css">
+    <link rel="stylesheet" href="~/assets/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <link rel="stylesheet" href="~/assets/css/responsive.css">
+    <script src="~/assets/js/vendor/modernizr-2.8.3.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="~/assets/http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+    <!-- Header Area Start -->
+    <header class="top">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-8 col-xs-12">
+                        <div class="header-top-left">
+                            <p>
+                                HAVE ANY QUESTION ? @setting.PhoneNumber
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-4 col-xs-12">
+                        <div class="header-top-right text-right">
+                            <ul>
+                                @if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+                                {
+                                    <li class="nav-item submenu dropdown">
+                                        <a asp-controller="identity" asp-action="update" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                                       aria-expanded="false">@User.Identity.Name</a>
+                                    </li>
+                                            <li class="nav-item"><a class="nav-link" asp-controller="identity" asp-action="Logout">Logout</a></li>
+                                            <li class="nav-item"><a class="nav-link" asp-controller="identity" asp-action="update">UserInfo</a></li>
+                                   
+                                }
+                                else
+                                {
+                                   
+                                        
+                                            <li class="nav-item"><a class="nav-link" asp-controller="identity" asp-action="login">Login</a></li>
+                                    
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="header-area two header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3 col-xs-6">
+                        <div class="logo">
+                            <a asp-controller="Home" asp-action="index"><img src="~/assets/img/logo/@setting.Logo" alt="eduhome" /></a>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-6">
+                        <div class="content-wrapper text-right">
+                            <!-- Main Menu Start -->
+                            <div class="main-menu">
+                                <nav>
+                                    <ul>
+                                        <li controller="home">
+                                            <a asp-controller="Home" asp-action="index">Home</a>
+                                        </li>
+                                        <li class="nav-item" controller="about"><a asp-controller="About" asp-action="index">About</a></li>
+                                        <li class="nav-item" controller="course"><a asp-controller="Course" asp-action="index">Courses</a> </li>
+                                        <li class="nav-item" controller="event"><a asp-controller="Event" asp-action="index">Event</a> </li>
+                                        <li class="nav-item" controller="teacher"><a asp-controller="Teacher" asp-action="index">Teacher</a> </li>
+                                        <li class="nav-item" controller="blog"><a asp-controller="Blog" asp-action="index">Blog</a> </li>
+                                        <li class="nav-item" controller="contact"><a asp-controller="Contact" asp-action="index">Contact</a> </li>
+                                       
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!--Search Form Start-->
+                            <div class="search-btn">
+                                <ul data-toggle="dropdown" class="header-search search-toggle">
+                                    <li class="search-menu">
+                                        <i class="fa fa-search"></i>
+                                    </li>
+                                </ul>
+                                <div class="search">
+                                    <div class="search-form">
+                                        <form id="search-form" action="#">
+                                            <input type="search" placeholder="Search here..." name="search" />
+                                            <button type="submit">
+                                                <span><i class="fa fa-search"></i></span>
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End of Search Form-->
+                            <!-- Main Menu End -->
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="mobile-menu hidden-lg hidden-md hidden-sm"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header Area End -->
+
+    @RenderBody()
+
+    <!-- Subscribe Start -->
+    <div class="subscribe-area pt-60 pb-70">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="subscribe-content section-title text-center">
+                        <h2>subscribe our newsletter</h2>
+                        <p>I must explain to you how all this mistaken idea </p>
+                    </div>
+                    <div class="newsletter-form mc_embed_signup">
+                        <form asp-action="sendemail" asp-controller="home" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                            <div id="mc_embed_signup_scroll" class="mc-form">
+                                <div class="form-group">
+                                    <label for="email">Subject</label>
+                                    <input type="email" name="email" id="email" class="form-control">
+                                    <span class="text text-danger"></span>
+                                </div>
+                                <button id="mc-embedded-subscribe" class="default-btn" type="submit" name="subcribe"><span>subscribe</span></button>
+                            </div>
+                        </form>
+                        <!-- mailchimp-alerts Start -->
+                        <div class="mailchimp-alerts">
+                            <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+                            <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+                            <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+                        </div>
+                        <!-- mailchimp-alerts end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Subscribe End -->
+    <!-- Footer Start -->
+    <footer class="footer-area">
+        <div class="main-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 col-xs-12">
+                        <div class="single-widget pr-60">
+                            <div class="footer-logo pb-25">
+                                <a href="~/assets/index.html"><img src="~/assets/img/logo/footer-logo.png" alt="eduhome"></a>
+                            </div>
+                            <p>I must explain to you how all this mistaken idea of denoung pleure and praising pain was born and give you a coete account of the system. </p>
+                            <div class="footer-social">
+                                <ul>
+                                    <li><a href="@setting.FacebookUrl"><i class="fa-brands fa-facebook"></i></a></li>
+                                    <li><a href="@setting.TwitterUrl"><i class="fa-brands fa-twitter"></i></a></li>
+                                    <li><a href="@setting.PinterestUrl"><i class="fa-brands fa-pinterest"></i></a></li>
+                                    <li><a href="@setting.VimeoUrl"> <i class="fa-brands fa-vimeo"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>     
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-widget">
+                            <h3>information</h3>
+                            <ul>
+                                <li><a href="~/assets/#">addmission</a></li>
+                                <li><a href="~/assets/#">Academic Calender</a></li>
+                                <li><a href="~/assets/event.html">Event List</a></li>
+                                <li><a href="~/assets/#">Hostel &amp; Dinning</a></li>
+                                <li><a href="~/assets/#">TimeTable</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-6 col-xs-12">
+                        <div class="single-widget">
+                            <h3>useful links</h3>
+                            <ul>
+                                <li><a href="~/assets/course.html">our courses</a></li>
+                                <li><a href="~/assets/about.html">about us</a></li>
+                                <li><a href="~/assets/teacher.html">teachers &amp; faculty</a></li>
+                                <li><a href="~/assets/#">teams &amp; conditions</a></li>
+                                <li><a href="~/assets/event.html">our events</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-widget">
+                            <h3>get in touch</h3>
+                            <p>Your address goes here, Street<br>City, @setting.Address</p>
+                            <p>@setting.PhoneNumber</p>
+                            <p>@setting.Email</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <p>Copyright © <a href="~/assets/#" target="_blank">HasTech</a> 2017. All Right Reserved By Hastech.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <script>
+        const values = location.pathname.trim().split('/')
+        const navItems = document.querySelectorAll(".nav-item");
+
+
+        navItems.forEach(item => {
+            const value = item.getAttribute("controller");
+            if (values[1] == "" && value == "home") {
+                item.classList.add("active")
+            } else if (values[1] === value) {
+                item.classList.add("active")
+            }
+        })</script>
+    <script src="~/assets/js/vendor/jquery-1.12.0.min.js"></script>
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/jquery.meanmenu.js"></script>
+    <script src="~/assets/js/jquery.magnific-popup.js"></script>
+    <script src="~/assets/js/ajax-mail.js"></script>
+    <script src="~/assets/js/owl.carousel.min.js"></script>
+    <script src="~/assets/js/jquery.mb.YTPlayer.js"></script>
+    <script src="~/assets/js/jquery.nicescroll.min.js"></script>
+    <script src="~/assets/js/plugins.js"></script>
+    <script src="~/assets/js/main.js"></script>
+       <!--gmaps Js-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCjCGmQ0Uq4exrzdcL6rvxywDDOvfAu6eE"></script>
+    <script src="~/assets/js/gmaps.min.js"></script>
+    <script src="~/assets/js/main.js"></script>
+</body>
+
+<!-- Mirrored from demo.devitems.com/eduhome/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 21 Jun 2020 19:41:25 GMT -->
+</html>
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        const Message = document.getElementById("message");
+        if (Message != undefined) {
+            const message = Message.innerHTML;
+            if (message != "") {
+                Swal.fire(`${message}`)
+            }
+
+        }</script>

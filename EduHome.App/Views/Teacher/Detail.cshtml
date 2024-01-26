@@ -1,0 +1,98 @@
+﻿ @model TeacherGetDto
+<!-- Banner Area Start -->
+<div class="banner-area-wrapper">
+    <div class="banner-area text-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="banner-content-wrapper">
+                        <div class="banner-content">
+                            <h2>teachers / details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Area End -->
+<!-- Teacher Start -->
+<div class="teacher-details-area pt-150 pb-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-5 col-xs-12">
+                <div class="teacher-details-img">
+                    <img src="~/assets/img/teacher/@Model.Image" alt="teacher">
+                </div>
+            </div>
+            <div class="col-md-7 col-sm-7 col-xs-12">
+                <div class="teacher-details-content ml-50">
+                    <h2>@Model.FullName</h2>
+                    <h5>@Model.Duty.Name</h5>
+                    <h4>about me</h4>
+                    <p>@Model.Info</p>
+                    <ul>
+                        <li><span>degree: </span>@Model.Degree.Name</li>
+                        <li><span>experience: </span>@Model.Experience years experience</li>
+                        <li><span>hobbies: </span>
+                              @foreach (var fac in @Model.Hobbies)
+                            {
+                                var facName = (string)fac.GetType().GetProperty("Name").GetValue(fac);
+                                <span>@facName </span>
+                            }
+                            </li>
+                        <li><span>faculty: </span>
+                            @foreach (var fac in @Model.Faculties)
+                            {
+                                var facName = (string)fac.GetType().GetProperty("Name").GetValue(fac);
+                                <span>@facName </span>
+                            }
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-4">
+                <div class="teacher-contact">
+                    <h4>contact information</h4>
+                    <p><span>mail me : </span>@Model.Email</p>
+                    <p><span>make a call : </span>@Model.PhoneNumber</p>
+                    <p><span>skype : </span> @Model.Skype</p>
+                    <ul>
+                        @foreach (var social in Model.SocialNetworks)
+                        {
+                            <li> <a href="@social.Url">@Html.Raw(social.Icon)</a></li>
+                        }
+                       
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9 col-sm-8">
+                <div class="skill-area">
+                    <h4>skills</h4>
+                </div>
+                <div class="skill-wrapper">
+                    <div class="row">
+                       @for (int i = 0; i < Model.SkillKeys.Count(); i++)
+                        {
+                        <div class="col-sm-4">
+                            <div class="skill-bar-item">
+                                    <span>@Model.SkillKeys[i]</span>
+                                <div class="progress">
+                                    <div data-wow-delay="1.2s" data-wow-duration="1.5s" style="width: @Model.SkillValues[i]%; visibility: visible; animation-duration: 1.5s; animation-delay: 1.2s; animation-name: fadeInLeft;" data-progress="50%" class="progress-bar wow fadeInLeft">
+                                            <span class="text-top">@Model.SkillValues[i]%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                        }
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Teacher End -->

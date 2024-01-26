@@ -1,0 +1,89 @@
+﻿@model SettingGetDto
+
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Default form</h4>
+                    <p class="card-description">
+                        Basic form layout
+                    </p>
+                    <form enctype="multipart/form-data" method="post" class="forms-sample">
+                        <div class="alert alert-danger" asp-validation-summary="ModelOnly"></div>
+                        <div class="form-group">
+                            <label asp-for="Email"></label>
+                            <input asp-for="Email" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="Email"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PhoneNumber"></label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="phone">
+                            <span class="text text-danger" asp-validation-for="PhoneNumber"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Address"></label>
+                            <input asp-for="Address" class="form-control" placeholder="Address">
+                            <span class="text text-danger" asp-validation-for="Address"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WelcomeTitle"></label>
+                            <input asp-for="WelcomeTitle" class="form-control" placeholder="WelcomeTitle">
+                            <span class="text text-danger" asp-validation-for="WelcomeTitle"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="WelcomeDesc"></label>
+                            <input asp-for="WelcomeDesc" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="WelcomeDesc"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Logo"></label>
+                            <input type="file" accept="image/*" asp-for="Logo" class="form-control">
+                            <br />
+                           <img  style="height:100px" src="~/assets/img/logo/@Model.Logo" />
+                        </div>
+                         <div class="form-group">
+                            <label asp-for="WelcomeImage"></label>
+                            <input type="file" accept="image/*" asp-for="WelcomeImage" class="form-control">
+                            <br />
+                           <img  style="height:100px" src="~/assets/img/setting/@Model.WelcomeImage" />
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="PinterestUrl"></label>
+                            <input asp-for="PinterestUrl" class="form-control" placeholder="PinterestUrl">
+                            <span class="text text-danger" asp-validation-for="PinterestUrl"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="FacebookUrl"></label>
+                            <input asp-for="FacebookUrl" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="FacebookUrl"></span>
+                        </div>
+                          <div class="form-group">
+                            <label asp-for="TwitterUrl"></label>
+                            <input asp-for="TwitterUrl" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="TwitterUrl"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="VimeoUrl"></label>
+                            <input asp-for="VimeoUrl" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="VimeoUrl"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="Video"></label>
+                            <input asp-for="Video" class="form-control" placeholder="Key">
+                            <span class="text text-danger" asp-validation-for="Video"></span>
+                        </div>
+
+
+                        
+
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                        <a class="btn btn-light" href=@Html.Raw(Url.Action("Index","Home"))>Cancel</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>

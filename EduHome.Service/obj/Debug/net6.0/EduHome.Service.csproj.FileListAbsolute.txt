@@ -1,0 +1,34 @@
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Service.deps.json
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Service.dll
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Service.pdb
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Core.dll
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Data.dll
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Data.pdb
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\bin\Debug\net6.0\EduHome.Core.pdb
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.AssemblyReference.cache
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.AssemblyInfoInputs.cache
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.AssemblyInfo.cs
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.CoreCompileInputs.cache
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.CopyComplete
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.dll
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\refint\EduHome.Service.dll
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\EduHome.Service.pdb
+C:\Users\OMEN\Desktop\VS Code\EduHome.Service\obj\Debug\net6.0\ref\EduHome.Service.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Service.deps.json
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Service.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Service.pdb
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Core.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Data.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Data.pdb
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\bin\Debug\net6.0\EduHome.Core.pdb
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.AssemblyReference.cache
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.AssemblyInfoInputs.cache
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.AssemblyInfo.cs
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.CoreCompileInputs.cache
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.csproj.CopyComplete
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\refint\EduHome.Service.dll
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\EduHome.Service.pdb
+C:\Users\OMEN\Desktop\EduHome\EduHome.Service\obj\Debug\net6.0\ref\EduHome.Service.dll

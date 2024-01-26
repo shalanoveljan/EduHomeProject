@@ -1,0 +1,66 @@
+﻿@model PagginatedResponse<SettingGetDto>
+<div class="content-wrapper">
+    <div class="row">
+        <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">
+                        <a class="btn btn-success" asp-action="create">
+                            Add New Setting 
+                        </a>
+                    </h4>
+                    <p class="card-description">
+                        Add class <code>.table</code>
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>welcomeImage</th>
+                                    <th>logo</th>
+                                    <th>Adress</th>
+                                    <th>phone</th>
+                                    <th>facebook</th>
+                                    <th>vimeo</th>
+                                    <th>twitter</th>
+                                    <th>pinterest</th>
+                                    <th>email</th>
+                                    <th>welcometitle</th>
+                                    <th>welcomedesc</th>
+                                    <th>Operations</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (SettingGetDto item in Model.Items)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td><img src="~/assets/img/setting/@item.WelcomeImage" /></td>
+                                         <td><img src="~/assets/img/logo/@item.Logo" /></td>
+                                        <td>@item.Address</td>
+                                        <td>@item.PhoneNumber</td>
+                                        <td>@item.FacebookUrl</td>
+                                        <td>@item.VimeoUrl</td>
+                                        <td>@item.TwitterUrl</td>
+                                        <td>@item.PinterestUrl</td>
+                                        <td>@item.Email</td>
+                                        <td>@item.WelcomeTitle</td>
+                                        <td>@item.WelcomeDesc</td>
+
+                                        <td><a onclick="return confirm('are you sure?')" asp-action="remove" asp-route-id="@item.Id" class="badge badge-danger">Remove</a> <a asp-action="update" asp-route-id="@item.Id" class="badge badge-warning">Update</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+
+
+                      
+                    </div>
+                </div>
+            </div>
+        </div>  
+    </div>
+</div>

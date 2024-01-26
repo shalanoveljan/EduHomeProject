@@ -1,0 +1,28 @@
+﻿
+@model List<SettingGetDto>
+
+@inject ISettingService settingService
+
+@{
+    SettingGetDto setting = await settingService.GetAsync(18);
+}
+
+
+@foreach (var item in Model)
+{
+
+        <div class="col-md-6 col-sm-6">
+            <div class="about-content">
+                    <h2>@setting.WelcomeTitle</h2>
+                <p>@setting.WelcomeDesc</p>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-6">
+            <div class="about-img">
+                <img src="~/assets/img/setting/@setting.WelcomeImage" alt="about">
+            </div>
+        </div>
+        
+    
+    
+}

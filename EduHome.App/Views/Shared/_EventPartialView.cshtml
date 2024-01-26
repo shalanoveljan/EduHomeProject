@@ -1,0 +1,23 @@
+﻿
+@model List<EventGetDto>
+
+    @foreach (var item in Model)
+{
+    <div  class="col-lg-6 single-event hidden-sm hidden-xs ">
+        <div style="display:width:50%" class="event-img">
+            <a asp-controller="event" asp-action="detail" asp-route-id="@item.Id"><img src="~/assets/img/event/@item.Image" alt="event"></a>
+        </div>
+        <div class="event-content text-left">
+            <h3>@item.EndDate.ToString("dd MMMM yyyy")</h3>
+            <h4><a href="~/assets/event-details.html">@item.Title</a></h4>
+            <ul>
+                <li><i class="fa fa-clock-o"></i>@item.JobTime</li>
+            </ul>
+            <div class="event-content-right">
+                <a class="default-btn" asp-controller="event" asp-action="detail" asp-route-id="@item.Id">join now</a>
+            </div>
+        </div>
+    </div>
+}
+
+          
